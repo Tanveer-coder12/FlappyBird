@@ -1058,12 +1058,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1446419779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45db7395dfa65b546b4b08e3a8564601, type: 3}
+  m_Script: {fileID: 11500000, guid: eeb3ce7028a3db040a2935a1039769b8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::player
-  UpwardForce: 3
-  rb: {fileID: 0}
-  lifes: []
+  m_EditorClassIdentifier: Assembly-CSharp::Player
+  rb: {fileID: 1446419784}
 --- !u!1 &1784479520
 GameObject:
   m_ObjectHideFlags: 0
