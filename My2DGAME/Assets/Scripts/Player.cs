@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public float Jumpforce, flapForce,maxUpwardSpeed;
     public GameMange gm;
+    public float MaxY, MinY;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +24,12 @@ public class Player : MonoBehaviour
         {
             flap();
         }
+      
+        
+    }
+    private void FixedUpdate()
+    {
+          
     }
     void flap()
     {
@@ -32,12 +39,22 @@ public class Player : MonoBehaviour
         // Clamp upward speed
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -maxUpwardSpeed, maxUpwardSpeed));
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject)
+        if (collision.gameObject.name == "Ground")
+        {
+            gm.lifeloose();
+
+        }
+        else if (collision.gameObject)
         {
             gm.lifeloose();
             Destroy(collision.gameObject);
+
+        }
+        if (collision.gameObject.tag == "Coin")
+        {
+            gm.scoreSystem();
         }
     }
 }
