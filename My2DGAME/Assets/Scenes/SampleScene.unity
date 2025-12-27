@@ -394,7 +394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 165040482}
-  - component: {fileID: 165040481}
+  - component: {fileID: 165040483}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -402,18 +402,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &165040481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165040480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 498f0a43754c6a043bd22f1c49cc3b23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameMange
 --- !u!4 &165040482
 Transform:
   m_ObjectHideFlags: 0
@@ -429,6 +417,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &165040483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165040480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc2ac1e3aa341a40b8b8483bfe98073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameMange
+  Lifes:
+  - {fileID: 88372091}
+  - {fileID: 2115963580}
+  - {fileID: 580803466}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,7 +1041,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 0.5
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1047,7 +1051,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1446419785
 MonoBehaviour:
@@ -1062,6 +1066,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   rb: {fileID: 1446419784}
+  Jumpforce: 5
+  flapForce: 5
+  maxUpwardSpeed: 7
+  gm: {fileID: 165040483}
 --- !u!1 &1784479520
 GameObject:
   m_ObjectHideFlags: 0

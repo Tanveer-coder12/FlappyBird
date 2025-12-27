@@ -22,7 +22,12 @@ public class GameMange : MonoBehaviour
         
             return;
             CurrentLife--;
-            
-        
+
+        Destroy(Lifes[CurrentLife]);
+        if(CurrentLife<= 0)
+        {
+            Debug.Log("Game Over");
+            Time.timeScale = 0;
+        }
     }
 }
