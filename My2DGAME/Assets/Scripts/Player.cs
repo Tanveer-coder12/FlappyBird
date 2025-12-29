@@ -4,9 +4,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float Jumpforce, flapForce,maxUpwardSpeed;
+    public float Jumpforce, maxUpwardSpeed;
     public GameMange gm;
-    public float MaxY, MinY;
+    public float flapForce;
+    public Transform BirdTransform;
+    public float Maxheight,minheight;   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,19 +20,18 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
     // Update is called once per frame
-    private void Update()
+   private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             flap();
         }
-      
-        
+        Vector3 pos = BirdTransform.position;
+        pos.y = Mathf.Clamp(pos.y, minheight, Maxheight);
+        BirdTransform.position = pos;
+
     }
-    private void FixedUpdate()
-    {
-          
-    }
+  
     void flap()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
@@ -46,7 +47,7 @@ public class Player : MonoBehaviour
             gm.lifeloose();
 
         }
-        else if (collision.gameObject)
+        else if (collision.gameObject.tag=="Pipe")
         {
             gm.lifeloose();
             Destroy(collision.gameObject);
@@ -54,7 +55,8 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Coin")
         {
-            gm.scoreSystem();
+            Debug.Log("Coin");
+            gm.Addscore();
         }
     }
 }

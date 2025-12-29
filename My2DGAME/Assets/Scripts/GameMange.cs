@@ -1,10 +1,11 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 public class GameMange : MonoBehaviour
 {
     public GameObject[] Lifes;
     int CurrentLife;
-    public TMP_Text txt;
+    public Text txt; 
     public int score;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +27,7 @@ public class GameMange : MonoBehaviour
     public void Addscore()
     {
         score += 1;
+        scoreSystem();
     }
     public void lifeloose()
     {
