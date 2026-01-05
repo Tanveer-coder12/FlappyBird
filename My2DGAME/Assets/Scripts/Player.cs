@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Coin");
             gm.Addscore();
+            Destroy(collision.gameObject);
         }
     }
 }
